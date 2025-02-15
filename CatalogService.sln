@@ -1,22 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService", "CatalogService\CatalogService.csproj", "{1400C881-B066-4C41-AD25-4184B144BE07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService", "CatalogService\CatalogService.csproj", "{297204DD-46D5-4111-B108-AA485BBC19DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{297204DD-46D5-4111-B108-AA485BBC19DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297204DD-46D5-4111-B108-AA485BBC19DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297204DD-46D5-4111-B108-AA485BBC19DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297204DD-46D5-4111-B108-AA485BBC19DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1400C881-B066-4C41-AD25-4184B144BE07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1400C881-B066-4C41-AD25-4184B144BE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1400C881-B066-4C41-AD25-4184B144BE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1400C881-B066-4C41-AD25-4184B144BE07}.Release|Any CPU.Build.0 = Release|Any CPU
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {341216DF-1938-4798-993C-886729770240}
 	EndGlobalSection
 EndGlobal
