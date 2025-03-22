@@ -1,0 +1,44 @@
+﻿[
+  {
+    "ProductId": 1,
+    "ProductName": "Laptop",
+    "Category": "Electronics",
+    "Price": 12000,
+    "ProductImage": ""
+  },
+  {
+    "ProductId": 2,
+    "ProductName": "Keyboard",
+    "Category": "Electronics",
+    "Price": 1200,
+    "ProductImage": ""
+  },
+  {
+    "ProductId": 3,
+    "ProductName": "Mouse",
+    "Category": "Electronics",
+    "Price": 500,
+    "ProductImage": ""
+  },
+  {
+    "ProductId": 4,
+    "ProductName": "AC",
+    "Category": "Electronics",
+    "Price": 15000,
+    "ProductImage": ""
+  },
+  {
+    "ProductId": 5,
+    "ProductName": "T-Shirt",
+    "Category": "Clothing",
+    "Price": 600,
+    "ProductImage": ""
+  },
+  {
+    "ProductId": 6,
+    "ProductName": "Book",
+    "Category": "Books",
+    "Price": 900,
+    "ProductImage": ""
+  }
+]

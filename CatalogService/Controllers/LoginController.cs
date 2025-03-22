@@ -1,6 +1,6 @@
-﻿using CatalogService.Models;
+﻿using CatalogService.Feature;
+using CatalogService.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CatalogService.Controllers
 {
@@ -8,6 +8,13 @@ namespace CatalogService.Controllers
     [Route("/api/login")]
     public class LoginController : Controller
     {
+        private readonly LoginHandler _loginHandler;
+
+        public LoginController()
+        {
+            _loginHandler = new LoginHandler();
+        }
+
         [HttpPost]
         public IActionResult Login([FromBody] Login loginRequest)
         {
@@ -16,9 +23,9 @@ namespace CatalogService.Controllers
                 return BadRequest("Username and password are required.");
             }
 
-            if (loginRequest.UserName == "admin" && loginRequest.Password == "admin")
+            if (_loginHandler.HandleLogin(loginRequest))
             {
-                return Ok(new { Message = "Login successful" }); 
+                return Ok(new { Message = "Login successful" });
             }
             else
             {
