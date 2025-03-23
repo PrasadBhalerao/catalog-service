@@ -26,13 +26,6 @@ namespace CatalogService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogService", Version = "v1" });
-            });
-
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
@@ -42,6 +35,12 @@ namespace CatalogService
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });
+            });
+
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogService", Version = "v1" });
             });
         }
 
@@ -56,6 +55,8 @@ namespace CatalogService
             }
 
             //app.UseHttpsRedirection();
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseRouting();
 
