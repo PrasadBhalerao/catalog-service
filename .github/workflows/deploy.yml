@@ -58,13 +58,8 @@ jobs:
       - name: Update Deployment Image
         run: |
           sed -i "s|prasadbhalerao/mcart-catalogservice:latest|prasadbhalerao/mcart-catalogservice:${{ github.sha }}|g" manifests/deployment.yaml
-
-      # Debug 1
-      - name: Get Kubernetes Context
-        run: |
-          az aks get-credentials --resource-group Mcart-RG --name Mcart-AKS-Cluster
           
-      # Debug 2
+      # Debug 1
       - name: Debug Kubernetes Context
         run: |
           kubectl config view
