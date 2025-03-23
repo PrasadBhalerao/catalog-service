@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mcart-catalogservice
-          image: prasadbhalerao/mcart-catalogservice:latest
+          image: prasadbhalerao/mcart-catalogservice:${{ github.sha }}
           ports:
             - containerPort: 8080
           resources:
