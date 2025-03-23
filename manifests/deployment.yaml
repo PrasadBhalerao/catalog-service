@@ -35,10 +35,5 @@ spec:
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Production"
-            - name: CONNECTION_STRING
-              valueFrom:
-                secretKeyRef:
-                  name: mcart-secrets
-                  key: connection-string
       imagePullSecrets:
         - name: dockerhub-secret
