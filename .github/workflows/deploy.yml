@@ -65,6 +65,10 @@ jobs:
           kubectl config view
           kubectl config current-context
           kubectl get nodes
+
+      - name: Replace image tag in Kubernetes manifests
+        run: |
+          sed -i "s|\${{ github.sha }}|${{ github.sha }}|g" manifests/deployment.yaml
           
       # Apply Kubernetes Manifests
       - name: Deploy to Kubernetes
