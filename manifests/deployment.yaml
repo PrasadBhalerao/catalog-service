@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcart-catalogservice
+  namespace: default
+  labels:
+    app: mcart-catalogservice
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: mcart-catalogservice
+  template:
+    metadata:
+      labels:
+        app: mcart-catalogservice
+    spec:
+      containers:
+        - name: mcart-catalogservice
+          image: prasadbhalerao/mcart-catalogservice:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: mcart-secrets
+                  key: connection-string
+      imagePullSecrets:
+        - name: dockerhub-secret

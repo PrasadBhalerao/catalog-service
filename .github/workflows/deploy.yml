@@ -1,0 +1,68 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AZURE_CONTAINER_REGISTRY: prasadbhalerao
+  CONTAINER_NAME: mcart-catalogservice
+  RESOURCE_GROUP: Mcart-RG
+  CLUSTER_NAME: Mcart-AKS-Cluster
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Log in to Docker Hub
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # Build and Push Docker Image
+      - name: Build and Push Docker Image
+        run: |
+          docker build -f ./CatalogService/dockerfile -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.CONTAINER_NAME }}:${{ github.sha }} .
+          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+
+  deploy:
+    name: Deploy to AKS
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Set up Kubectl
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v3
+
+      # Get Kubeconfig from Secret
+      - name: Set up Kubeconfig
+        run: |
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > kubeconfig.yaml
+          export KUBECONFIG=kubeconfig.yaml
+
+      # Update Image in Deployment
+      - name: Update Deployment Image
+        run: |
+          sed -i "s|prasadbhalerao/mcart-catalogservice:latest|prasadbhalerao/mcart-catalogservice:${{ github.sha }}|g" manifests/deployment.yaml
+
+      # Apply Kubernetes Manifests
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f manifests/
+
+      # Verify Deployment Status
+      - name: Check Deployment Status
+        run: |
+          kubectl rollout status deployment/mcart-catalogservice
