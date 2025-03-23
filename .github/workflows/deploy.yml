@@ -44,22 +44,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Set up Kubectl
-      - name: Set up Kubectl
-        uses: azure/setup-kubectl@v3
-
-      # Get Kubeconfig from Secret
-      - name: Set up Kubeconfig
+      - name: Azure Login
         run: |
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > kubeconfig.yaml
-          export KUBECONFIG=kubeconfig.yaml
+          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
 
-      # Update Image in Deployment
-      - name: Update Deployment Image
+      - name: Set Azure Subscription
         run: |
-          sed -i "s|prasadbhalerao/mcart-catalogservice:latest|prasadbhalerao/mcart-catalogservice:${{ github.sha }}|g" manifests/deployment.yaml
-          
-      # Debug 1
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Get AKS Credentials
+        run: |
+          az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.CLUSTER_NAME }} --overwrite-existing
+
+      - name: Set KUBECONFIG
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+
       - name: Debug Kubernetes Context
         run: |
           kubectl config view
