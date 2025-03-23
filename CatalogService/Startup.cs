@@ -32,6 +32,17 @@ namespace CatalogService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogService", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://mcart-angularapp.default.svc.cluster.local") // Allow calls from frontend service
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
