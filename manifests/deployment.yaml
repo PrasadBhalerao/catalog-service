@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mcart-catalogservice
-          image: prasadbhalerao/mcart-catalogservice:latest
+          image: prasadbhalerao/mcart-catalogservice:${SHA_TAG}
           ports:
             - containerPort: 8080
           resources:
@@ -35,10 +35,5 @@ spec:
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Production"
-            - name: CONNECTION_STRING
-              valueFrom:
-                secretKeyRef:
-                  name: mcart-secrets
-                  key: connection-string
       imagePullSecrets:
         - name: dockerhub-secret

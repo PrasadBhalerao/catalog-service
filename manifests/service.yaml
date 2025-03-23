@@ -4,6 +4,7 @@ metadata:
   name: mcart-catalogservice
   namespace: default
 spec:
+  type: LoadBalancer
   selector:
     app: mcart-catalogservice
   ports:
