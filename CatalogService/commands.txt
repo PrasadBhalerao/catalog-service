@@ -12,6 +12,7 @@ az acr create -n mcartacr1 -g Mcart-RG --sku Basic
 Mcart-RG
 Mcart-AKS-Cluster
 MCartACR 
+mcartsa
 
 az ad sp create-for-rbac --name "AzureDevOpsSP" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>
 az ad sp create-for-rbac --name "AzureDevOpsSP" --role contributor --scopes /subscriptions/8209aacc-e6ac-4604-bbd8-dfdcf7a679ae/resourceGroups/Mcart-RG
@@ -33,6 +34,11 @@ az role assignment create --assignee "82b05c23-f536-4eee-bdcb-24c53681f9a1" --ro
 
 az aks get-credentials --resource-group <RESOURCE_GROUP> --name <AKS_CLUSTER_NAME>
 
+
+az aks stop --resource-group Mcart-RG --name Mcart-AKS-Cluster
+az aks start --resource-group Mcart-RG --name Mcart-AKS-Cluster
+
+az role assignment create --assignee "82b05c23-f536-4eee-bdcb-24c53681f9a1" --role "Storage Blob Data Contributor" --scope /subscriptions/8209aacc-e6ac-4604-bbd8-dfdcf7a679ae/resourceGroups/MC_Mcart-RG_MCart-AKS-Cluster_centralindia/providers/Microsoft.Storage/storageAccounts/mcartsa
 
 az role assignment list --assignee "82b05c23-f536-4eee-bdcb-24c53681f9a1"
 
