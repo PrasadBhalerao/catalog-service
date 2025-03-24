@@ -31,7 +31,8 @@ namespace CatalogService
                 options.AddPolicy("AllowSpecificOrigin",
                     builder =>
                     {
-                        builder.WithOrigins("http://mcart-angularapp.default.svc.cluster.local") // Allow calls from frontend service
+                        builder.WithOrigins("http://mcart-angularapp.default.svc.cluster.local",
+                                            "http://40.81.249.182" // Add external IP address)
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });
