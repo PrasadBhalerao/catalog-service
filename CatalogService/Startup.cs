@@ -32,7 +32,7 @@ namespace CatalogService
                     builder =>
                     {
                         builder.WithOrigins("http://mcart-angularapp.default.svc.cluster.local",
-                                            "http://40.81.249.182" // Add external IP address)
+                                            "http://40.81.249.182") // Add external IP address)
                                .AllowAnyMethod()
                                .AllowAnyHeader();
                     });
