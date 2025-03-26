@@ -4,41 +4,41 @@
     "ProductName": "Laptop",
     "Category": "Electronics",
     "Price": 12000,
-    "ProductImage": ""
+    "ProductImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "ProductId": 2,
     "ProductName": "Keyboard",
     "Category": "Electronics",
     "Price": 1200,
-    "ProductImage": ""
+    "ProductImage": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=2065&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "ProductId": 3,
     "ProductName": "Mouse",
     "Category": "Electronics",
     "Price": 500,
-    "ProductImage": ""
+    "ProductImage": "https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "ProductId": 4,
     "ProductName": "AC",
     "Category": "Electronics",
     "Price": 15000,
-    "ProductImage": ""
+    "ProductImage": "https://plus.unsplash.com/premium_photo-1679943423706-570c6462f9a4?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "ProductId": 5,
     "ProductName": "T-Shirt",
     "Category": "Clothing",
     "Price": 600,
-    "ProductImage": ""
+    "ProductImage": "https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "ProductId": 6,
     "ProductName": "Book",
     "Category": "Books",
     "Price": 900,
-    "ProductImage": ""
+    "ProductImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]
