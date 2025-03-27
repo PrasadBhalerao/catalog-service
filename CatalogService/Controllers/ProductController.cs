@@ -7,7 +7,7 @@ using System.Linq;
 namespace CatalogService.Controllers
 {
     [ApiController]
-    [Route("/api/product")]
+    [Route("/api/products")]
     public class ProductController : Controller
     {
         private readonly ProductHandler _productHandler;
